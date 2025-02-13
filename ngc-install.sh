@@ -3,8 +3,8 @@
 # Download NGC CLI zip file
 wget --content-disposition https://api.ngc.nvidia.com/v2/resources/nvidia/ngc-apps/ngc_cli/versions/3.59.0/files/ngccli_linux.zip -O ngccli_linux.zip
 
-# Unzip the downloaded file
-unzip ngccli_linux.zip
+# Unzip the downloaded file into the current directory
+unzip -q ngccli_linux.zip
 
 # Verify the file's integrity (MD5 hash check)
 echo "Verifying MD5 checksum..."
@@ -14,6 +14,12 @@ find ngc-cli/ -type f -exec md5sum {} + | LC_ALL=C sort | md5sum -c ngc-cli.md5
 echo "Verifying SHA256 checksum..."
 sha256sum ngccli_linux.zip
 echo "Expected SHA256: 87f03dab6d05e97547fb213ee4932654b3f6fccf82ca75f470d5cd3a4e8be8be"
+
+# Check if the 'ngc' binary exists and is in the correct directory
+if [ ! -f "ngc-cli/ngc" ]; then
+    echo "Error: NGC CLI binary not found. Exiting."
+    exit 1
+fi
 
 # Make the NGC CLI binary executable
 chmod u+x ngc-cli/ngc
