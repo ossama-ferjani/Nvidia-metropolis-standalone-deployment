@@ -8,6 +8,10 @@ dependency_check() {
     }
 }
 
+# 1 Configuring needrestart to run in automatic mode
+echo "Configuring needrestart to run in automatic mode..."
+echo 'NEEDRESTART_MODE=a' | sudo tee -a /etc/environment
+
 # 2.1 Verify You Have a CUDA-Capable GPU
 echo "Checking for CUDA-capable GPU..."
 lspci | grep -i nvidia || {
