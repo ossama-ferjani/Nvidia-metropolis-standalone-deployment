@@ -34,5 +34,8 @@ gcc --version || {
     echo "gcc not found. Installing..."
     sudo apt update && sudo apt install -y gcc
 }
+# disable ipv6
+echo "Disabling IPv6..."
+sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
 
 echo "All necessary components verified or installed successfully!"
