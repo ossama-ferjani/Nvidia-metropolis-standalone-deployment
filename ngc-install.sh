@@ -4,6 +4,7 @@
 wget --content-disposition https://api.ngc.nvidia.com/v2/resources/nvidia/ngc-apps/ngc_cli/versions/3.59.0/files/ngccli_linux.zip -O ngccli_linux.zip
 
 # Unzip the downloaded file into the current directory
+sudo apt install unzip
 unzip -q ngccli_linux.zip
 
 # Verify the file's integrity (MD5 hash check)
