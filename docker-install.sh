@@ -36,3 +36,21 @@ sudo systemctl restart docker
 
 # Verify the installation and check the docker0 bridge IP
 ifconfig
+
+
+
+# Docker installation and setup
+# Create the docker group
+sudo groupadd docker
+
+# Add your user to the docker group
+sudo usermod -aG docker $USER
+
+# Inform the user to log out and log back in
+echo "You need to log out and log back in for the group membership to take effect."
+
+# If running in a virtual machine, recommend restarting
+echo "If you're running Linux in a virtual machine, it may be necessary to restart the VM for changes to take effect."
+
+# Alternatively, activate the changes to groups without logout
+echo "You can also run 'newgrp docker' to activate changes to your group immediately."
