@@ -5,7 +5,7 @@ RESOURCE_PATH="nfgnkvuikvjm/mdx-v2-0/metropolis-apps-standalone-deployment:v2.1-
 
 # Download the folder using NGC CLI
 echo "Downloading Metropolis Apps Deployment..."
-ngc registry resource download-version "$RESOURCE_PATH"
+ngc-cli/ngc registry resource download-version "$RESOURCE_PATH"
 
 # Extract the downloaded folder name
 TAR_FILE="metropolis-apps-standalone-deployment.tar.gz"
